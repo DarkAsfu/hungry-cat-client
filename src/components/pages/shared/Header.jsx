@@ -42,7 +42,7 @@ const Header = () => {
                         <TriggerRendererProp></TriggerRendererProp>
                     }
                     {
-                        user ? <button onClick={handleLogOut} className="btn">logout</button> : <Link to="/login" className="btn">login</Link>
+                        user ? <button onClick={handleLogOut} className="btn btn-primary">logout</button> : <Link to="/login" className="btn btn-primary">login</Link>
                     }
                 </div>
             </div>
