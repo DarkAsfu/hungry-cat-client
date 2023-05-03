@@ -38,12 +38,12 @@ const Recipe = () => {
                                 <div className="stat-title">Years of experinece</div>
                                 <div className="stat-value">{recipe.yearsOfExperience} years</div>
                             </div>
-
+                            
                         </div>
                     </div>
                 </div>
             </div>
-
+            
             <div className='md:grid grid-cols-2 gap-10 w-10/12 mx-auto pb-20'>
                 {
                     recipes.map(recipe => <RecipeCard key={recipe.likes} recipe={recipe}></RecipeCard>)
