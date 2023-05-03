@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import SocialLogin from '../shared/socialLogin';
 
 const Register = () => {
     return (
@@ -40,7 +41,7 @@ const Register = () => {
                         <div className="form-control mt-6">
                             <button className="btn btn-primary">Register</button>
                         </div>
-                        {/* <Google></Google> */}
+                        <SocialLogin></SocialLogin>
                         <label className="label">
                             {/* <p className="label-text-alt text-red-600">{error}</p>
                                 <p className="label-text-alt text-green-600">{succcess}</p> */}

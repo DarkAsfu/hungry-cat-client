@@ -1,16 +1,17 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import SocialLogin from '../shared/socialLogin';
 
 const Login = () => {
     return (
-        <div>
+        <div className=''>
             <div className="hero min-h-screen bg-base-200">
             <div className="hero-content flex-col">
                 <div className="text-center px-14">
                     <h1 className="text-4xl font-bold mb-2">Please Login !</h1>
                     {/* <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Error, officiis.</p> */}
                 </div>
-                <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100 ">
+                <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100 pb-8">
                     <form  className="card-body">
                         <div className="form-control">
                             <label className="label">
@@ -33,7 +34,7 @@ const Login = () => {
                     </form>
 
                     <p className="label-text-alt p-8">Are you new? please <Link to='/register' className='text-blue-400'>Register</Link></p>
-                    {/* <Google></Google> */}
+                    <SocialLogin></SocialLogin>
                     {/* <small className='text-red-600 font-bold px-6 pb-3'>{error}</small>
                     <small className='text-green-600 font-bold px-6 pb-3'>{success}</small> */}
                 </div>
