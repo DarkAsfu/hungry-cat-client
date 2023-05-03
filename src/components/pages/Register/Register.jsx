@@ -4,7 +4,7 @@ import SocialLogin from '../shared/socialLogin';
 import { AuthContext } from '../../providers/AuthProvider';
 
 const Register = () => {
-    const { createUser } = useContext(AuthContext);
+    const { createUser, updateInfo } = useContext(AuthContext);
     const [error, setError] = useState('');
     const [success, setSuccess] = useState('');
     const handleRegister = (e) => {
@@ -32,9 +32,10 @@ const Register = () => {
             .then(result => {
                 const loggeduser = result.user;
                 console.log(loggeduser);
-                form.reset();
+                updateInfo(name, photo);
                 setSuccess('Register successfully!!!');
                 setError('')
+                form.reset();
             })
             .catch(error => {
                 console.log(error.message);
