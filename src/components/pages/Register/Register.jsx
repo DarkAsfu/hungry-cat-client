@@ -1,8 +1,47 @@
-import React from 'react';
+import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import SocialLogin from '../shared/socialLogin';
+import { AuthContext } from '../../providers/AuthProvider';
 
 const Register = () => {
+    const { createUser } = useContext(AuthContext);
+    const [error, setError] = useState('');
+    const [success, setSuccess] = useState('');
+    const handleRegister = (e) => {
+        e.preventDefault();
+        const form = e.target;
+        const name = form.name.value;
+        const photo = form.photo.value;
+        const email = form.email.value;
+        const password = form.password.value;
+        console.log(name, photo, email, password);
+        if (!/(?=.*[A-Z])/.test(password)) {
+            setError('Please enter at least one uppercase');
+            return;
+        } else if (!/(?=.*[!@#$&*])/.test(password)) {
+            setError('Please enter at least one special character');
+            return;
+        } else if (!/(?=.*[0-9])/.test(password)) {
+            setError('Please enter at least one number');
+            return;
+        } else if (!/.{8}/.test(password)) {
+            setError('Please enter minimum 8 character');
+            return;
+        }
+        createUser(email, password)
+            .then(result => {
+                const loggeduser = result.user;
+                console.log(loggeduser);
+                form.reset();
+                setSuccess('Register successfully!!!');
+                setError('')
+            })
+            .catch(error => {
+                console.log(error.message);
+                setError(error.message);
+                setSuccess('')
+            })
+    }
     return (
         <div className="hero min-h-screen bg-base-200">
             <div className="hero-content flex-col">
@@ -10,7 +49,7 @@ const Register = () => {
                     <h1 className="text-4xl font-bold">Please Register !</h1>
                 </div>
                 <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100 ">
-                    <form className="card-body">
+                    <form onSubmit={handleRegister} className="card-body">
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Name</span>
@@ -43,8 +82,8 @@ const Register = () => {
                         </div>
                         <SocialLogin></SocialLogin>
                         <label className="label">
-                            {/* <p className="label-text-alt text-red-600">{error}</p>
-                                <p className="label-text-alt text-green-600">{succcess}</p> */}
+                            <p className="label-text-alt text-red-600">{error}</p>
+                            <p className="label-text-alt text-green-600">{success}</p>
                         </label>
                     </form>
                 </div>
