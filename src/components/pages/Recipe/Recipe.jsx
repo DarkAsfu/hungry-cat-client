@@ -1,9 +1,11 @@
 import React from 'react';
 import { useLoaderData } from 'react-router-dom';
+import RecipeCard from '../RecipeCard/RecipeCard';
 
 const Recipe = () => {
     const recipe = useLoaderData();
-    console.log(recipe.recipes);
+    const {recipes} = recipe;
+    // console.log(recipes);
     return (
         <div>
             <div className="w-10/12 mx-auto py-40">
@@ -40,6 +42,12 @@ const Recipe = () => {
                         </div>
                     </div>
                 </div>
+            </div>
+
+            <div className='md:grid grid-cols-2 gap-10 w-10/12 mx-auto pb-20'>
+                {
+                    recipes.map(recipe => <RecipeCard key={recipe.likes} recipe={recipe}></RecipeCard>)
+                }
             </div>
         </div>
     );
