@@ -4,7 +4,7 @@ const OrderSystem = () => {
     // #1c2123
     return (
         <div className='py-36' style={{background:'#1c2123'}}>
-            <div className='w-10/12 mx-auto grid grid-cols-3'>
+            <div className='w-10/12 mx-auto md:grid grid-cols-3'>
                 <div>
                     <img src={burger} alt="" />
                 </div>
