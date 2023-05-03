@@ -1,7 +1,18 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../providers/AuthProvider';
+import TriggerRendererProp from './TriggerRendererProp/TriggerRendererProp';
 
 const Header = () => {
+    const {user, logOut}  =useContext(AuthContext);
+    console.log(user);
+    const handleLogOut = () =>{
+        logOut()
+        .then(()=>{})
+        .catch(e=>{
+            console.log(e.message);
+        })
+    }
     return (
         <div>
             <div className="navbar bg-base-100 md:w-10/12 mx-auto">
@@ -26,7 +37,13 @@ const Header = () => {
                     </ul>
                 </div>
                 <div className="navbar-end">
-                    <Link to="/login" className="btn">login</Link>
+                    {
+                        user &&
+                        <TriggerRendererProp></TriggerRendererProp>
+                    }
+                    {
+                        user ? <button onClick={handleLogOut} className="btn">logout</button> : <Link to="/login" className="btn">login</Link>
+                    }
                 </div>
             </div>
         </div>
