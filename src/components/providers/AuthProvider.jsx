@@ -50,7 +50,7 @@ const AuthProvider = ({children}) => {
         gitHubLogIn,
         createUser,
         signIn,
-        updateInfo,
+        updateInfo, 
         logOut
     }
     return (
