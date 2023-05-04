@@ -61,7 +61,6 @@ const Blog = () => {
                         </li>
                         <li>Express.js provides middleware functions that can be used to handle common web application tasks, while Node.js does not provide any built-in middleware functions.</li>
                         <li>Node.js can be used to build a wide variety of applications, while Express.js is specifically designed for building web applications and APIs.</li>
-
                     </ol>
 
                 </div>
