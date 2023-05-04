@@ -18,7 +18,7 @@ const RecipeCard = ({ recipe }) => {
                     <h2 className="card-title">{recipe.recipeName}</h2>
                     <p className='font-bold'>Ingrediants: </p>
                     {
-                        recipe.ingredients.map(i => <li>{i}</li>)
+                        recipe.ingredients.map((i, idx) => <li key={idx}>{i}</li>)
                     }
                     <p><span className='font-bold'>Cooking Method:</span> {recipe.cookingMethod}</p>
                     {/* <p>Rating: {recipe.rating}</p> */}
