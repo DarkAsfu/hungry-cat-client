@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useLoaderData } from 'react-router-dom';
 import RecipeCard from '../RecipeCard/RecipeCard';
 
@@ -17,10 +17,6 @@ const Recipe = () => {
                     <div className='leading-loose'>
                         <h1 className="text-5xl font-bold">{recipe.chefName}</h1>
                         <p className="py-6">{recipe.chefBio}</p>
-                        {/* <p className='font-bold text-blue-500'>Number of recipes: {recipe.numberOfRecipes}</p>
-                        <p className='font-bold text-blue-500'>Number of Likes: {recipe.likes}</p>
-                        <p className='font-bold text-blue-500'>Years of experinece: {recipe.yearsOfExperience} years</p>
-                         */}
                         <div className="stats stats-vertical lg:stats-horizontal shadow">
 
                             <div className="stat">

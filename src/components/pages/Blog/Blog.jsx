@@ -3,12 +3,20 @@ import blog1 from '../../../../public/control.png'
 import blog2 from '../../../../public/props.png'
 import blog3 from '../../../../public/nodeexpress.png'
 import blog4 from '../../../../public/hook.png'
+import ReactDOM from "react-dom";
+import Pdf from "react-to-pdf";
+
+const ref = React.createRef();
+
 
 const Blog = () => {
     // <div className="divider divider-horizontal">OR</div>
     return (
-        <div>
-            <div className='w-2/4 mx-auto py-20'>
+        <div className="App">
+            <Pdf  targetRef={ref} filename="code-example.pdf"  x={.5} y={.5} scale={0.8}>
+                {({ toPdf }) => <button onClick={toPdf}>Generate Pdf</button>}
+            </Pdf>
+            <div className='w-2/4 mx-auto' ref={ref}>
                 <div className='pb-8'>
                     <img src={blog1} alt="" />
                     <h3 className='font-bold text-3xl'>Differences between uncontrolled and controlled components.</h3>
@@ -32,7 +40,7 @@ const Blog = () => {
                         3. Define propTypes by adding a static propTypes object to your component, specifying the expected types and shapes of the props.<br />
                         4. Test the propTypes by passing different props and checking if warnings are thrown using a testing library like Jest.<br />
                     </p>
-                    
+
                 </div>
                 <div className='pb-8'>
                     <img src={blog3} alt="" />
@@ -42,13 +50,13 @@ const Blog = () => {
                     <ol className='list-decimal leading-loose'>
                         <li>Node.js is a runtime environment for executing JavaScript code, while Express.js is a web application framework built on top of Node.js.</li>
                         <li>
-                        Node.js provides low-level APIs for working with file systems, network connections, and other system resources, while Express.js provides a higher-level API for building web applications.
+                            Node.js provides low-level APIs for working with file systems, network connections, and other system resources, while Express.js provides a higher-level API for building web applications.
                         </li>
                         <li>Express.js provides middleware functions that can be used to handle common web application tasks, while Node.js does not provide any built-in middleware functions.</li>
                         <li>Node.js can be used to build a wide variety of applications, while Express.js is specifically designed for building web applications and APIs.</li>
-                        
+
                     </ol>
-                    
+
                 </div>
                 <div className='pb-8'>
                     <img src={blog4} alt="" />
@@ -56,19 +64,19 @@ const Blog = () => {
                     </h3>
                     <div className="divider divider-vertical"></div>
                     <p>A custok hook in a React is a reusable funtion that decrease complex logic. It can be across multiple components.
-                    <br/>Here some Features: 
+                        <br />Here some Features:
                     </p>
                     <ol className='list-decimal leading-loose'>
                         <li>Reusability: By encapsulating complex logic in a custom hook, you can reuse that logic across multiple components without having to repeat code.</li>
                         <li>
-                        Testing: Custom hooks can be tested independently of components, making it easier to write tests and ensuring that the logic is working correctly.
+                            Testing: Custom hooks can be tested independently of components, making it easier to write tests and ensuring that the logic is working correctly.
                         </li>
                     </ol>
-                    
+
                 </div>
             </div>
         </div>
-    );
+    )
 };
 
 export default Blog;

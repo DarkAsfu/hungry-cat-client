@@ -28,7 +28,7 @@ const router = createBrowserRouter([
             {
                 path: '/recipe/:id',
                 element: <PrivateRouter><Recipe></Recipe></PrivateRouter>,
-                loader: ({params})=> fetch(`http://localhost:5000/recipe/${params.id}`)
+                loader: ({params})=> fetch(`https://the-hungry-cat-servers-darkasfu.vercel.app/recipe/${params.id}`)
             },
             {
                 path: '/blog',
