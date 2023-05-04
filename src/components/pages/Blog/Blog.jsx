@@ -11,12 +11,19 @@ const ref = React.createRef();
 
 const Blog = () => {
     // <div className="divider divider-horizontal">OR</div>
+    const options = {
+        margin: 40,
+        pagebreak: { mode: 'avoid-all' },
+        image: { type: 'png', quality: 0.98 },
+        html2canvas: { scale: 2 },
+        jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+      };
     return (
         <div className="App">
-            <Pdf  targetRef={ref} filename="code-example.pdf"  x={.5} y={.5} scale={0.8}>
-                {({ toPdf }) => <button onClick={toPdf}>Generate Pdf</button>}
+            <Pdf  targetRef={ref} filename="blog.pdf">
+                {({ toPdf }) => <button className='btn btn-primary ms-36 mt-10' onClick={() => toPdf(options)} >Generate Pdf</button>}
             </Pdf>
-            <div className='w-2/4 mx-auto' ref={ref}>
+            <div className='md:w-2/4 mx-auto p-8' ref={ref}>
                 <div className='pb-8'>
                     <img src={blog1} alt="" />
                     <h3 className='font-bold text-3xl'>Differences between uncontrolled and controlled components.</h3>
