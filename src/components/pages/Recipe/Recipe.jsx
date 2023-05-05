@@ -1,6 +1,8 @@
 import React, { useContext } from 'react';
 import { useLoaderData } from 'react-router-dom';
 import RecipeCard from '../RecipeCard/RecipeCard';
+import Preloader from '../../Preloader/Preloader';
+import ScrollToTop from '../../ScrollToTop/ScrollToTop';
 
 const Recipe = () => {
     const recipe = useLoaderData();
@@ -8,6 +10,8 @@ const Recipe = () => {
     // console.log(recipes);
     return (
         <div>
+            <ScrollToTop></ScrollToTop>
+            <Preloader></Preloader>
             <div className="w-10/12 mx-auto py-40">
                 <div className="md:flex items-center gap-8">
                     <div>
