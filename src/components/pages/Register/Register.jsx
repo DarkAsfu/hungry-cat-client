@@ -27,8 +27,8 @@ const Register = () => {
             setError('Please enter at least one number');
             setSuccess('')
             return;
-        } else if (!/.{8}/.test(password)) {
-            setError('Please enter minimum 8 character');
+        } else if (!/.{6}/.test(password)) {
+            setError('Please enter minimum 6 character');
             setSuccess('')
             return;
         }
