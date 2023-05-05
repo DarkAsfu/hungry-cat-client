@@ -9,7 +9,7 @@ const SingleChef = ({ chef }) => {
         <div className=''>
             
             <div className="card  bg-base-100 shadow-xl mt-4">
-                <figure><LazyLoad  height={762} width={400} threshold={0.95}><img className='md:h-72' src={chef.chefPicture} alt="Shoes" /></LazyLoad></figure>
+                <figure><LazyLoad  height={762} width={400}  onContentVisible={() => {console.log('loaded!')}}><img className='md:h-72' src={chef.chefPicture} alt="Shoes" /></LazyLoad></figure>
                 <div className="card-body">
                     <h2 className="card-title text-3xl font-mono">{chef.chefName}</h2>
                     <p className='text-blue-500'><span className='font-bold text-black'>Years of experinece:</span> {chef.yearsOfExperience}</p>

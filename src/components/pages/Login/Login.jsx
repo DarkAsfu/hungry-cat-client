@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Navigate, useNavigate } from 'react-router-dom';
 import SocialLogin from '../shared/socialLogin';
 import { AuthContext } from '../../providers/AuthProvider';
 
@@ -7,6 +7,7 @@ const Login = () => {
     const {signIn} = useContext(AuthContext);
     const [error, setError] = useState('')
     const [success, setSuccess] = useState('')
+    const navigate = useNavigate();
     const handleSignIn = (e) =>{
         e.preventDefault();
         const form = e.target;
@@ -20,6 +21,8 @@ const Login = () => {
             setSuccess('Successfully login!!');
             setError('');
             form.reset();
+            navigate("/")
+            
         })
         .catch(error =>{
             console.log(error.message);
