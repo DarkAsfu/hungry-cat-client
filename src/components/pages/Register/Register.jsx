@@ -4,7 +4,7 @@ import SocialLogin from '../shared/socialLogin';
 import { AuthContext } from '../../providers/AuthProvider';
 
 const Register = () => {
-    const { createUser, updateInfo } = useContext(AuthContext);
+    const { createUser, updateInfo,logOut } = useContext(AuthContext);
     const [error, setError] = useState('');
     const [success, setSuccess] = useState('');
     const handleRegister = (e) => {
@@ -17,15 +17,19 @@ const Register = () => {
         console.log(name, photo, email, password);
         if (!/(?=.*[A-Z])/.test(password)) {
             setError('Please enter at least one uppercase');
+            setSuccess('')
             return;
         } else if (!/(?=.*[!@#$&*])/.test(password)) {
             setError('Please enter at least one special character');
+            setSuccess('')
             return;
         } else if (!/(?=.*[0-9])/.test(password)) {
             setError('Please enter at least one number');
+            setSuccess('')
             return;
         } else if (!/.{8}/.test(password)) {
             setError('Please enter minimum 8 character');
+            setSuccess('')
             return;
         }
         createUser(email, password)
@@ -36,6 +40,7 @@ const Register = () => {
                 setSuccess('Register successfully!!!');
                 setError('')
                 form.reset();
+                logOut();
             })
             .catch(error => {
                 console.log(error.message);
